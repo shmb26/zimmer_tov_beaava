@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>צימר טוב באהבה - עמק המעיינות</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'Rubik', sans-serif;
+        }
+        
+        .hebrew {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .english, .french {
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        .hero {
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+        }
+        
+        .accommodation-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .accommodation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pool-hours {
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+        }
+    </style>
+</head>
+<body class="hebrew">
+    <!-- Language Selector -->
+    
+
+    <!-- Header -->
+     <!-- Language Selector and Navigation -->
+      <!-- Preloader -->
+<!-- Fullscreen Preloader -->
+<div id="preloader" class="fixed inset-0 bg-white flex items-center justify-center z-50 overflow-hidden">
+    <img src="jaquzzi_ext.jpeg" alt="Loading" class="w-full h-full object-cover">
+  </div>
+  
+  <script>
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 3000); // 3 secondes
+    });
+  </script>
+  <style>
+    #preloader {
+      transition: opacity 3s ease;
+    }
+    
+    #preloader.fade-out {
+      opacity: 0;
+    }
+    </style>
+    
+  
+  
+<div class="bg-white shadow-md sticky top-0 z-50 flex justify-between items-center p-4">
+    <a href="index.html" class="text-2xl font-bold text-blue-600">
+      <span data-lang="he">צימר טוב באהבה</span>
+      <span class="hidden" data-lang="en">Zimmer Tov BeAhava</span>
+      <span class="hidden" data-lang="fr">Zimmer Tov BeAhava</span>
+    </a>
+  
+    <nav class="flex space-x-4">
+      <a href="zimmer.html" class="text-gray-700 hover:text-blue-600 font-semibold">
+        <span data-lang="he">הצימר</span>
+        <span class="hidden" data-lang="en">Accommodation</span>
+        <span class="hidden" data-lang="fr">Hébergement</span>
+      </a>
+      <a href="maregion.html" class="text-gray-700 hover:text-blue-600 font-semibold">
+        <span data-lang="he" style="margin: 10px;">אזור הפעילות</span>
+        <span class="hidden" data-lang="en">Activities</span>
+        <span class="hidden" data-lang="fr">Activités</span>
+      </a>
+    </nav>
+  
+    <!-- Language Buttons -->
+    <div class="flex gap-2">
+      <button onclick="switchLanguage('he')" class="px-2 py-1 rounded hover:bg-gray-100">עברית</button>
+      <button onclick="switchLanguage('en')" class="px-2 py-1 rounded hover:bg-gray-100">EN</button>
+      <button onclick="switchLanguage('fr')" class="px-2 py-1 rounded hover:bg-gray-100">FR</button>
+    </div>
+    <div class="text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4" data-lang="he">צימר טוב באהבה</h1>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 hidden" data-lang="en">Zimmer Tov BeAhava</h1>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 hidden" data-lang="fr">Zimmer Tov BeAhava</h1>
+        
+        <p class="text-xl md:text-2xl mb-8" data-lang="he">חופשה מושלמת בעמק המעיינות</p>
+        <p class="text-xl md:text-2xl mb-8 hidden" data-lang="en">Perfect vacation in Emek HaMayanot</p>
+        <p class="text-xl md:text-2xl mb-8 hidden" data-lang="fr">Vacances parfaites dans la vallée des sources</p>
+        
+        <a href="#accommodations" class="bg-white text-blue-600 px-6 py-3 rounded-full font-bold text-lg hover:bg-blue-50 transition">
+            <span data-lang="he">גלו את הצימרים שלנו</span>
+            <span data-lang="en" class="hidden">Discover our accommodations</span>
+            <span data-lang="fr" class="hidden">Découvrez nos hébergements</span>
+        </a>
+    </div>
+  </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- About Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-6" data-lang="he">אודותינו</h2>
+            <h2 class="text-3xl font-bold mb-6 hidden" data-lang="en">About Us</h2>
+            <h2 class="text-3xl font-bold mb-6 hidden" data-lang="fr">À propos</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg mb-4" data-lang="he">צימר טוב באהבה מציע שני צימרים ייחודיים ומפנקים באזור עמק המעיינות, המקום המושלם לבריחה מהשגרה ולחיבור עם הטבע.</p>
+                    <p class="text-lg mb-4 hidden" data-lang="en">Zimmer Tov BeAhava offers two unique and luxurious accommodations in the Emek HaMayanot area, the perfect place to escape routine and connect with nature.</p>
+                    <p class="text-lg mb-4 hidden" data-lang="fr">Zimmer Tov BeAhava propose deux hébergements uniques et luxueux dans la région d'Emek HaMayanot, l'endroit idéal pour échapper à la routine et se connecter avec la nature.</p>
+                    
+                    <p class="text-lg" data-lang="he">הצימרים שלנו מעוצבים בקפידה ומציעים את כל מה שצריך לחופשה מושלמת - נוחות, פרטיות ונופים עוצרי נשימה.</p>
+                    <p class="text-lg hidden" data-lang="en">Our accommodations are carefully designed and offer everything needed for a perfect vacation - comfort, privacy and breathtaking views.</p>
+                    <p class="text-lg hidden" data-lang="fr">Nos hébergements sont soigneusement conçus et offrent tout ce dont vous avez besoin pour des vacances parfaites - confort, intimité et vues à couper le souffle.</p>
+                </div>
+                <div>
+                    <img src="jaquzzi_ext.jpeg" alt="Beautiful house" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </section>
+
+        <!-- Accommodations Section -->
+        <section id="accommodations" class="mb-16">
+            <h2 class="text-3xl font-bold mb-6" data-lang="he">הצימר שלנו</h2>
+            <h2 class="text-3xl font-bold mb-6 hidden" data-lang="en">Our Accommodation</h2>
+            <h2 class="text-3xl font-bold mb-6 hidden" data-lang="fr">Notre Hébergement</h2>
+          
+            <div class="grid md:grid-cols-1 gap-8">
+              <a href="zimmer.html" class="block accommodation-card bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition">
+                <img src="room.jpeg" alt="Zimmer Tel Teomim" class="w-full h-64 object-cover">
+                <div class="p-6">
+                  <h3 class="text-2xl font-bold mb-2" data-lang="he">צימר זוגי במושב תל תאומים</h3>
+                  <h3 class="text-2xl font-bold mb-2 hidden" data-lang="en">Romantic Zimmer in Tel Te'omim</h3>
+                  <h3 class="text-2xl font-bold mb-2 hidden" data-lang="fr">Zimmer Romantique à Tel Te'omim</h3>
+          
+                  <p class="text-gray-700 mb-4" data-lang="he">חופשה זוגית מושלמת עם ג'קוזי פנימי, גינה פרטית וחניה במושב שקט בעמק המעיינות.</p>
+                  <p class="text-gray-700 mb-4 hidden" data-lang="en">Perfect romantic getaway with indoor jacuzzi, private garden and parking in a quiet village in Emek HaMayanot.</p>
+                  <p class="text-gray-700 mb-4 hidden" data-lang="fr">Escapade romantique parfaite avec jacuzzi intérieur, jardin privé et parking dans un village calme de la vallée des sources.</p>
+          
+                  <div class="flex flex-wrap gap-4 text-blue-600 mt-4">
+                    <div class="flex items-center gap-2"><i class="fas fa-shower"></i> <span data-lang="he">מקלחת</span><span data-lang="en" class="hidden">Shower</span><span data-lang="fr" class="hidden">Douche</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-hot-tub"></i> <span data-lang="he">ג'קוזי פנימי</span><span data-lang="en" class="hidden">Indoor Jacuzzi</span><span data-lang="fr" class="hidden">Jacuzzi intérieur</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-tree"></i> <span data-lang="he">גינה פרטית</span><span data-lang="en" class="hidden">Private Garden</span><span data-lang="fr" class="hidden">Jardin privé</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-parking"></i> <span data-lang="he">חניה</span><span data-lang="en" class="hidden">Parking</span><span data-lang="fr" class="hidden">Parking</span></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </section>
+          
+
+        <!-- Pool Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-6" data-lang="he">בריכה משותפת</h2>
+            <h2 class="text-3xl font-bold mb-6 hidden" data-lang="en">Shared Pool</h2>
+            <h2 class="text-3xl font-bold mb-6 hidden" data-lang="fr">Piscine Commune</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="pool.jpg" alt="Swimming pool" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div>
+                    <p class="text-lg mb-4" data-lang="he">להנאת האורחים שלנו, אנו מציעים בריכה משותפת ומפנקת הזמינה בשעות מסוימות. הבריכה מוקפת בטבע ירוק ונוף מרהיב.</p>
+                    <p class="text-lg mb-4 hidden" data-lang="en">For our guests' enjoyment, we offer a shared luxurious pool available at certain hours. The pool is surrounded by green nature and stunning views.</p>
+                    <p class="text-lg mb-4 hidden" data-lang="fr">Pour le plaisir de nos invités, nous proposons une piscine commune luxueuse disponible à certaines heures. La piscine est entourée d'une nature verdoyante et d'une vue imprenable.</p>
+                    
+                    <div class="pool-hours p-4 rounded-lg mb-4">
+                        <h4 class="font-bold mb-2" data-lang="he">שעות פתיחה:</h4>
+                        <h4 class="font-bold mb-2 hidden" data-lang="en">Opening hours:</h4>
+                        <h4 class="font-bold mb-2 hidden" data-lang="fr">Heures d'ouverture :</h4>
+                        
+                        <ul class="list-disc pl-5">
+                            <li data-lang="he">בוקר: 08:00 - 12:00</li>
+                            <li class="hidden" data-lang="en">Morning: 08:00 - 12:00</li>
+                            <li class="hidden" data-lang="fr">Matin : 08:00 - 12:00</li>
+                            
+                            <li data-lang="he">אחר הצהריים: 15:00 - 19:00</li>
+                            <li class="hidden" data-lang="en">Afternoon: 15:00 - 19:00</li>
+                            <li class="hidden" data-lang="fr">Après-midi : 15:00 - 19:00</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="text-sm text-gray-600" data-lang="he">* הבריכה סגורה בימי שישי ושבת</p>
+                    <p class="text-sm text-gray-600 hidden" data-lang="en">* The pool is closed on Fridays and Saturdays</p>
+                    <p class="text-sm text-gray-600 hidden" data-lang="fr">* La piscine est fermée les vendredis et samedis</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="mb-16" id="location">
+            <h2 class="text-3xl font-bold mb-6" data-lang="he">מיקום</h2>
+            <h2 class="text-3xl font-bold mb-6 hidden" data-lang="en">Location</h2>
+            <h2 class="text-3xl font-bold mb-6 hidden" data-lang="fr">Emplacement</h2>
+          
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <p class="text-lg mb-4" data-lang="he">הצימר שלנו ממוקם במושב תל תאומים, בלב עמק המעיינות, אזור עשיר בטבע, מעיינות ומסלולי טיול.</p>
+                <p class="text-lg mb-4 hidden" data-lang="en">Our accommodation is located in Tel Te'omim, in the heart of Emek HaMayanot, a region rich in nature, springs, and hiking trails.</p>
+                <p class="text-lg mb-4 hidden" data-lang="fr">Notre hébergement est situé à Tel Te'omim, au cœur de la vallée des sources, une région riche en nature, sources et sentiers de randonnée.</p>
+          
+                <div class="flex items-center mb-2">
+                  <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
+                  <span data-lang="he">מושב תל תאומים, ישראל</span>
+                  <span class="hidden" data-lang="en">Moshav Tel Te'omim, Israel</span>
+                  <span class="hidden" data-lang="fr">Moshav Tel Te'omim, Israël</span>
+                </div>
+              </div>
+          
+              <div class="bg-gray-100 rounded-lg overflow-hidden">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.097391126393!2d35.50440131511027!3d32.508504581064525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca2a76db0c13f%3A0xa5f964e2a5c8c66e!2sTel%20Te&#39;omim%2C%20Israel!5e0!3m2!1sen!2sil!4v1714387457821!5m2!1sen!2sil" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </section>
+          
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-gray-50 py-12 px-6 rounded-lg">
+            <h2 class="text-3xl font-bold mb-6 text-center" data-lang="he">יצירת קשר</h2>
+            <h2 class="text-3xl font-bold mb-6 text-center hidden" data-lang="en">Contact Us</h2>
+            <h2 class="text-3xl font-bold mb-6 text-center hidden" data-lang="fr">Contactez-nous</h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <div class="flex flex-col md:flex-row gap-6 mb-8">
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-4" data-lang="he">פרטי התקשרות</h3>
+                            <h3 class="text-xl font-bold mb-4 hidden" data-lang="en">Contact Details</h3>
+                            <h3 class="text-xl font-bold mb-4 hidden" data-lang="fr">Coordonnées</h3>
+                            
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-phone text-blue-600 mr-3"></i>
+                                <div>
+                                    <p class="font-bold" data-lang="he">טלפון להזמנות</p>
+                                    <p class="font-bold hidden" data-lang="en">Reservation phone</p>
+                                    <p class="font-bold hidden" data-lang="fr">Téléphone pour réservation</p>
+                                    <a href="tel:+972501234567" class="text-blue-600 hover:underline">+972 50-123-4567</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-envelope text-blue-600 mr-3"></i>
+                                <div>
+                                    <p class="font-bold" data-lang="he">אימייל</p>
+                                    <p class="font-bold hidden" data-lang="en">Email</p>
+                                    <p class="font-bold hidden" data-lang="fr">Email</p>
+                                    <a href="mailto:info@zimmertov.com" class="text-blue-600 hover:underline">info@zimmertov.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>
+                                <div>
+                                    <p class="font-bold" data-lang="he">כתובת</p>
+                                    <p class="font-bold hidden" data-lang="en">Address</p>
+                                    <p class="font-bold hidden" data-lang="fr">Adresse</p>
+                                    <p data-lang="he">עמק המעיינות, ישראל</p>
+                                    <p class="hidden" data-lang="en">Emek HaMayanot, Israel</p>
+                                    <p class="hidden" data-lang="fr">Emek HaMayanot, Israël</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold mb-4" data-lang="he">שעות פעילות</h3>
+                            <h3 class="text-xl font-bold mb-4 hidden" data-lang="en">Business Hours</h3>
+                            <h3 class="text-xl font-bold mb-4 hidden" data-lang="fr">Heures d'ouverture</h3>
+                            
+                            <ul class="space-y-2">
+                                <li class="flex justify-between">
+                                    <span data-lang="he">א'-ה'</span>
+                                    <span class="hidden" data-lang="en">Sun-Thu</span>
+                                    <span class="hidden" data-lang="fr">Dim-Jeu</span>
+                                    <span>08:00 - 20:00</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span data-lang="he">ו'</span>
+                                    <span class="hidden" data-lang="en">Fri</span>
+                                    <span class="hidden" data-lang="fr">Ven</span>
+                                    <span>08:00 - 14:00</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span data-lang="he">ש'</span>
+                                    <span class="hidden" data-lang="en">Sat</span>
+                                    <span class="hidden" data-lang="fr">Sam</span>
+                                    <span data-lang="he">סגור</span>
+                                    <span class="hidden" data-lang="en">Closed</span>
+                                    <span class="hidden" data-lang="fr">Fermé</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="mb-4" data-lang="he">להזמנות יש להתקשר למספר הטלפון במהלך שעות הפעילות</p>
+                        <p class="mb-4 hidden" data-lang="en">For reservations, please call during business hours</p>
+                        <p class="mb-4 hidden" data-lang="fr">Pour les réservations, veuillez appeler pendant les heures d'ouverture</p>
+                        
+                        <a href="tel:+972501234567" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-700 transition">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span data-lang="he">התקשרו עכשיו</span>
+                            <span data-lang="en" class="hidden">Call now</span>
+                            <span data-lang="fr" class="hidden">Appelez maintenant</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4" data-lang="he">צימר טוב באהבה</h3>
+              <h3 class="text-xl font-bold mb-4 hidden" data-lang="en">Zimmer Tov BeAhava</h3>
+              <h3 class="text-xl font-bold mb-4 hidden" data-lang="fr">Zimmer Tov BeAhava</h3>
+      
+              <p data-lang="he">חופשה מושלמת בעמק המעיינות</p>
+              <p class="hidden" data-lang="en">Perfect vacation in Emek HaMayanot</p>
+              <p class="hidden" data-lang="fr">Vacances parfaites dans la vallée des sources</p>
+            </div>
+      
+            <div>
+              <h3 class="text-xl font-bold mb-4" data-lang="he">קישורים מהירים</h3>
+              <h3 class="text-xl font-bold mb-4 hidden" data-lang="en">Quick Links</h3>
+              <h3 class="text-xl font-bold mb-4 hidden" data-lang="fr">Liens rapides</h3>
+      
+              <ul class="space-y-2">
+                <li><a href="index.html" class="hover:text-blue-300 transition" data-lang="he">דף הבית</a></li>
+                <li><a href="index.html" class="hover:text-blue-300 transition hidden" data-lang="en">Home</a></li>
+                <li><a href="index.html" class="hover:text-blue-300 transition hidden" data-lang="fr">Accueil</a></li>
+      
+                <li><a href="zimmer.html" class="hover:text-blue-300 transition" data-lang="he">הצימר</a></li>
+                <li><a href="zimmer.html" class="hover:text-blue-300 transition hidden" data-lang="en">Accommodation</a></li>
+                <li><a href="zimmer.html" class="hover:text-blue-300 transition hidden" data-lang="fr">Hébergement</a></li>
+      
+                <li><a href="maregion.html" class="hover:text-blue-300 transition" data-lang="he">אזור הפעילות</a></li>
+                <li><a href="maregion.html" class="hover:text-blue-300 transition hidden" data-lang="en">Activities</a></li>
+                <li><a href="maregion.html" class="hover:text-blue-300 transition hidden" data-lang="fr">Activités</a></li>
+              </ul>
+            </div>
+          </div>
+      
+          <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+            <p data-lang="he">© 2025 צימר טוב באהבה. כל הזכויות שמורות.</p>
+            <p class="hidden" data-lang="en">© 2025 Zimmer Tov BeAhava. All rights reserved.</p>
+            <p class="hidden" data-lang="fr">© 2025 Zimmer Tov BeAhava. Tous droits réservés.</p>
+          </div>
+        </div>
+      </footer>
+      
+
+    <script>
+        function switchLanguage(lang) {
+            // Hide all language elements
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Show elements for selected language
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            // Update body direction
+            if (lang === 'he') {
+                document.body.classList.add('hebrew');
+                document.body.classList.remove('english', 'french');
+                document.body.dir = 'rtl';
+            } else {
+                document.body.classList.remove('hebrew');
+                document.body.classList.add(lang === 'en' ? 'english' : 'french');
+                document.body.dir = 'ltr';
+            }
+        }
+    </script>
+</body>
+</html>
